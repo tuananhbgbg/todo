@@ -1,0 +1,31 @@
+﻿@using DatabaseIntegration
+@model IndexViewModel
+@{ Layout = "_Layout";}
+
+<form action="/todo/edit" method="post">
+    <label for="Id">Choose a task</label>
+    <select name="Id">
+        @foreach (var item in @Model.Todos)
+        {
+        <option value="@item.Id">@item.Title</option>
+        }
+    </select>
+    <br />
+    <label for="isdone">Done </label>
+    <input type="checkbox" value="true" name="IsDone" id="isdone" />
+    @*<input type="radio" value="false" name="isDone" id="isdone" />No*@
+    <br />
+    <label for="isurgent">Urgent?</label>
+    <input type="radio" value="true" name="IsUrgent" id="isurgent" />Yes
+    <input type="radio" value="false" name="IsUrgent" id="isurgent" />No
+    <br />
+    <select name="assigneeId">
+        @foreach (var item in @Model.Assignees)
+        {
+        <option value="@item.Id">@item.Name</option>
+        }
+    </select>
+
+    <br />
+    <button type="submit">Add</button>
+</form>

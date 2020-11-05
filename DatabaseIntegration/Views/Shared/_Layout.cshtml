@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div>
+        <nav>
+            <a href="/list">To do List</a>
+            <a href="/todo/add">Add a Task</a>
+            <a href="/todo/edit">Edit a Task</a>
+            <br />
+            <a href="/assignee">Show Assignees</a>
+            <a href="/assignee/add">Add new Assignee</a>
+            <a href="/assignee/edit">Change Assignee Name</a>
+        </nav>
+
+        @RenderBody()
+    </div>
+</body>
+</html>

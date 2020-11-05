@@ -1,0 +1,23 @@
+﻿@{ Layout = "_Layout";}
+@using DatabaseIntegration
+@model List<Assignee>
+
+
+    <table>
+        <thead>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+        </thead>
+        <tbody>
+            @foreach (var assignee in @Model)
+            {
+                <tr>
+                    <td>@assignee.Id</td>
+                    <td><a href="/assignee/@assignee.Id">@assignee.Name</a></td>
+                    <td>@assignee.Email</td>
+                    <td><a href="/assignee/@assignee.Id/delete">delete</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>

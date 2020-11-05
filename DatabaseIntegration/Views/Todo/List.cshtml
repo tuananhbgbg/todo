@@ -1,0 +1,42 @@
+﻿@using DatabaseIntegration
+@model List<Todo>
+@{ Layout= "_Layout";}
+
+<h1>Todos for Today</h1>
+
+<form action="/search" method="get">
+    <input type="text" name="search" value="" />
+    <button type="submit">Search</button>
+</form>
+<table>
+    <thead>
+    <th>ID</th>
+    <th>Action</th>
+    <th>Description</th>
+    <th><a href="/?IsActive=true">Done</a></th>
+        <!--alternate option for anchor-->
+        @*@Html.ActionLink();*@
+    <th>Urgent</th>
+    <th>Assignee</th>
+    </thead>
+    <tbody>
+        @foreach (var item in @Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Title</td>
+                <td>@item.Description</td>
+                <td>@item.IsDone</td>
+                <td>@item.IsUrgent</td>
+                <td>
+                    @if (@item.Assigneer != null)
+                    {
+                    <a href="/assignee/@item.Assigneer.Id">@item.Assigneer.Name</a>
+                    }
+                </td>
+                <td><a href="/@item.Id/delete">delete</a></td>
+            </tr>
+        }
+
+    </tbody>
+</table>
